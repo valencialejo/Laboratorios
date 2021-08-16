@@ -1,0 +1,42 @@
+{% extends "dad_template.html" %}
+
+{%block title%}Ventas{%endblock%}
+
+{%block content%}
+    {% if user.is_authenticated %}
+        <div align="center">
+                <div class="col-md-8">
+                    <h2>Ventas</h2>
+                    <h6>Haz ingresado como: {{user.last_name}}, {{user.first_name}}   ({{user.username}})</h6><br>
+                    <h6>El usuario con mayor aporte es: {{usuario_max}} con un total de {{max_ventas}}</h6><br>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="centrado">#</th>
+                                    <th class="centrado">Nombre de usuario</th>
+                                    <th>Precio total venta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for p in ventas %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{p.user}}</td>
+                                    <td>{{p.precio_t}}</td>
+                                </tr>
+                                {% endfor %}
+                            <tbody>
+                        </table>
+                    </div>
+                    <a class="btn btn-primary" href="{% url 'add' user.id %}">Añadir publicación</a>
+                </div>
+        </div>
+    {% else %}
+        <div align="center">
+            <br><br><br><br>
+            <h1 class="fw-bold">BIENVENIDO A LA RED DE USUARIOS <br>DE INDUSTRIAS FARMACEUTICAS iFarma</h1><br>
+            <h6 class="fs-2">Por favor ingresa tu usuario y contraseña para continuar</h6>
+        </div>
+    {%endif%}
+{%endblock%}

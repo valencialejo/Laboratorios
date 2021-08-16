@@ -1,0 +1,40 @@
+{% extends "dad_template.html" %}
+
+{%block title%}Sign In{%endblock%}
+
+{%block content%}
+<div align="center">
+    <form id="registro" action="{% url 'registro' %}" method="POST">
+        {% csrf_token %}
+        <div class="card" style="width: 25rem">
+            <h1 class="card-tittle" align="center">Registro de usuario</h1>
+            
+            <h6 class="card-subtittle" align="left">Nombre:</h6>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="firstname" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" minlength="1" maxlength="20" required>
+            </div>
+
+            <h6 class="card-subtittle" align="left">Apellidos:</h6>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="lastname" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" minlength="1" maxlength="20" required>
+            </div>
+
+
+            <h6 class="card-subtittle" align="left">Nombre de usuario:</h6>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="username" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" minlength="1" maxlength="15" required>
+            </div>
+
+            <h6 class="card-subtittle" align="left">Contraseña:</h6>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" name="psw" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" minlength="1" maxlength="20" required>
+            </div>
+            
+            <div class="input-group mb-3">
+                <input type="submit" class="btn btn-success btn-block text-white" value="Crear usuario" align="center"/>
+                <a class="btn btn-link" href="{% url 'login' %}">or Sign In</a>
+            </div>
+        </div>
+    </form>
+</div>
+{%endblock%}
