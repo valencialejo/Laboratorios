@@ -25,7 +25,7 @@ SECRET_KEY = '29wx)5c@8yd^f=8+994-@$#s!ch8us+%c5*fh+-rlbj-n$5l6f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['alevalencia.us-south.cf.appdomain.cloud']
 
 
 # Application definition
