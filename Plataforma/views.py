@@ -24,9 +24,10 @@ def ventas(request):
         for i in ventas:
             precio=Venta.objects.filter(user=u.id).aggregate(Sum('precio_t'))
         preciot=precio['precio_t__sum']
-        if preciot>max:
-            max=preciot
-            usuario_max=u.usuario
+        if preciot!=None:
+            if preciot>max:
+                max=preciot
+                usuario_max=u.usuario
         
     data={
         'ventas':ventas,
